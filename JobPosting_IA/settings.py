@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'JobPost_01',
     'Acountservice',
+    'IA_Service',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'JobPosting_IA.urls'
+
+GEMINI_API_KEY = "tu_api_key"
+GEMINI_API_SECRET = "tu_api_secret"
 
 TEMPLATES = [
     {
