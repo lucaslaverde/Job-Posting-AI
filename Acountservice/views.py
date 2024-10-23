@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import redirect
 from django.db import IntegrityError
+from JobPost_01.models import SystemUser as SyU
 
 from django.contrib.auth.decorators import login_required
 
@@ -21,6 +22,9 @@ def signupaccount(request):
                 user = User.objects.create_user(request.POST['username'],
                             password=request.POST['password1'])
                 user.save()
+                
+                SyU.objects.create(Usuario=request.POST['username'])
+
                 login(request, user)
                 return redirect('home')
             except IntegrityError:
